@@ -5,5 +5,9 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  /* text-align: center; */
+}
+
+.label {
+  margin: 1em;
+  padding: 1em;
 }
