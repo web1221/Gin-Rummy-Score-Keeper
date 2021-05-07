@@ -1,28 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import styles from '../styles/StartPage.module.css'
 import Link from 'next/link'
+import NameForms from './NameForms'
+import ScoreBoard from './ScoreBoard'
 
 export default function StartPage() {
-    let [player1Name, setPlayer1Name] = useState('')
-    let [player2Name, setPlayer2Name] = useState('')
+    const [player1Name, setPlayer1Name] = useState('')
+    const [player2Name, setPlayer2Name] = useState('')
+    const [roundScore, setRoundScore] = useState([])
+    const [player1TotalScore, setPlayer1TotalScore] = useState(0)
+    const [player2TotalScore, setPlayer2TotalScore] = useState(0)
+    const [showNameInputs, setShowNameInputs] = useState(true)
+
     return (
       <div className={styles.container}>
-        <header><h1>Welcome to the Gin Rummy Counter!</h1></header>
-        <section>
-            <h3>Enter the Names of Players</h3>
-            <form className={styles.formContainer}>
-                <label className={styles.label}>
-                    Player 1:
-                    <input type="text" name="name" />
-                </label>
-                <label className={styles.label}>
-                    Player 2:
-                    <input type="text" name="name" />
-                </label>
-                <button type='submit'><Link href="/CounterPage">Let Play!</Link></button>
-            </form>
-        </section>
+        {showNameInputs && 
+            <NameForms 
+                setPlayer1Name={setPlayer1Name} 
+                setPlayer2Name={setPlayer2Name}
+                player1Name={player1Name}
+                player2Name={player2Name}
+                setShowNameInputs={setShowNameInputs}
+            />
+          }
+          {!showNameInputs && 
+            <ScoreBoard 
+                player1Name={player1Name}
+                player2Name={player2Name}
+            />
+          }
       </div>
     );
   }
