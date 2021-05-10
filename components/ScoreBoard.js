@@ -29,7 +29,7 @@ export default function ScoreBoard(props) {
                     {testArray.map((score) => {
                         return (
                             <div key={score.round} style={divStyle}>
-                                <p>{score.round})</p>
+                                <p style={{paddingRight: 10}}>{score.round})</p>
                                 <p>{score.score1}</p>
                             </div>
                         )
@@ -45,5 +45,5 @@ export default function ScoreBoard(props) {
 
   const divStyle = {
     display: 'flex',
-    justifyContent: 'space-evenly'
+    justifyContent: 'center'
   }
