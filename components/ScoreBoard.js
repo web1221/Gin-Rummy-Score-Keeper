@@ -7,14 +7,17 @@ export default function ScoreBoard(props) {
         {
             round: 1,
             score1: 10,
+            score2: 12
         },
         {
             round: 2,
             score1: 50,
+            score2: 30
         },
         {
             round: 3,
             score1: 30,
+            score2: 100
         }
     ]
     return (
@@ -29,14 +32,23 @@ export default function ScoreBoard(props) {
                     {testArray.map((score) => {
                         return (
                             <div key={score.round} style={divStyle}>
-                                <p style={{paddingRight: 10}}>{score.round})</p>
-                                <p>{score.score1}</p>
+                                <p>{score.round})</p>
+                                <p style={{paddingRight: 10}}>{score.score1}</p>
                             </div>
                         )
                     })}
                     
                 </Col>
-                <Col>{props.player2Name}</Col>
+                <Col>
+                    {props.player2Name}
+                    {testArray.map((score) => {
+                        return (
+                            <div key={score.round}>
+                                <p>{score.score2}</p>
+                            </div>
+                        )
+                    })}
+                </Col>
             </Row>
           </Container>
       </div>
@@ -45,5 +57,5 @@ export default function ScoreBoard(props) {
 
   const divStyle = {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'space-between'
   }
