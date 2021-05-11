@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
-import { Container, Row, Col, Table} from 'react-bootstrap';
-import Jumbotron from 'react-bootstrap/Jumbotron'
+import React, {useEffect} from 'react';
+import { Container, Table} from 'react-bootstrap';
 
 export default function ScoreBoard(props) {
     let testArray = [
@@ -18,39 +17,28 @@ export default function ScoreBoard(props) {
             round: 3,
             score1: 30,
             score2: 100
+        },
+        {
+            round: 4,
+            score1: 65,
+            score2: 100
         }
     ]
+    useEffect(() => {
+        addTotalScore()
+    }, [props.player1TotalScore])
+
+    const addTotalScore = () => {
+         props.setPlayer1TotalScore(testArray.reduce((accum,item) => accum + item.score1, 0))
+         props.setPlayer2TotalScore(testArray.reduce((accum,item) => accum + item.score2, 0))
+    }
     return (
       <div>
           <Container>
               <div >
                 <h1>Score Board</h1>
               </div>
-            {/* <Row>
-                <Col>
-                    {props.player1Name}
-                    {testArray.map((score) => {
-                        return (
-                            <div key={score.round} style={divStyle}>
-                                <p>{score.round})</p>
-                                <p style={{paddingRight: 10}}>{score.score1}</p>
-                            </div>
-                        )
-                    })}
-                    
-                </Col>
-                <Col>
-                    {props.player2Name}
-                    {testArray.map((score) => {
-                        return (
-                            <div key={score.round}>
-                                <p>{score.score2}</p>
-                            </div>
-                        )
-                    })}
-                </Col>
-            </Row> */}
-            <Table striped bordered hover size="sm">
+            <Table striped bordered size="sm">
                 <thead>
                     <tr>
                     <th>Round</th>
@@ -59,20 +47,31 @@ export default function ScoreBoard(props) {
                     </tr>
                 </thead>
        
+                <tbody>
                 {testArray.map((score) => {
                         return (
                             <>
-                           
-                                     <tbody key={score.round}>
-                                     <tr>
-                                     <td>{score.round}</td>
-                                     <td>{score.score1}</td>
-                                     <td>{score.score2}</td>
-                                     </tr>
-                                 </tbody>
+                                <tr key={score.round}>
+                                <td>{score.round}</td>
+                                <td>{score.score1}</td>
+                                <td>{score.score2}</td>
+                                </tr>
                              </>
                         )
                     })}
+                    <tr>
+                        <td>
+                            Total
+                        </td>
+                        <td>
+                            {props.player1TotalScore}
+                        </td>
+                        <td>
+                            {props.player2TotalScore}
+                        </td>
+                    </tr>
+                    </tbody>
+
             </Table>
           </Container>
       </div>
