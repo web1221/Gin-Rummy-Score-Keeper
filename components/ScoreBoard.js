@@ -28,8 +28,6 @@ export default function ScoreBoard(props) {
     
     useEffect(() => {
         addTotalScore()
-        addRoundsAndPoints()
-        console.log(roundAndScoreObj)
     }, [props.player1TotalScore])
 
     const addRoundsAndPoints = () => {
