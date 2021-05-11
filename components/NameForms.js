@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
-import styles from '../styles/StartPage.module.css'
-import Link from 'next/link'
+import styles from '../styles/NameForms.module.css'
 
 export default function NameForms(props) {
     const onSubmit = (event) => {
