@@ -1,7 +1,4 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
-import styles from '../styles/StartPage.module.css'
-import Link from 'next/link'
 import NameForms from './NameForms'
 import ScoreBoard from './ScoreBoard'
 
@@ -13,7 +10,7 @@ export default function StartPage() {
     const [showNameInputs, setShowNameInputs] = useState(true)
 
     return (
-      <div className={styles.container}>
+      <div>
         {showNameInputs && 
             <NameForms 
                 setPlayer1Name={setPlayer1Name} 
