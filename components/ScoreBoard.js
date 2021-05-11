@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Container, Table} from 'react-bootstrap';
 
 export default function ScoreBoard(props) {
+    const [roundAndScoreObj, setRoundAndScoreObj] = useState([])
     let testArray = [
         {
             round: 1,
@@ -24,21 +25,34 @@ export default function ScoreBoard(props) {
             score2: 100
         }
     ]
+    
     useEffect(() => {
         addTotalScore()
+        addRoundsAndPoints()
+        console.log(roundAndScoreObj)
     }, [props.player1TotalScore])
+
+    const addRoundsAndPoints = () => {
+        // Need to find way to push up correct round 
+        // How do we make the round increase? 
+        // Do you need to add a round state? 
+        // round, setRound = useState(0) round + 1 every time this runs.
+        // might think of adding addTotalScore to this function too? 
+        roundAndScoreObj.push({round: 3, score1: 10, score2: 40})
+    }
 
     const addTotalScore = () => {
          props.setPlayer1TotalScore(testArray.reduce((accum,item) => accum + item.score1, 0))
          props.setPlayer2TotalScore(testArray.reduce((accum,item) => accum + item.score2, 0))
     }
+
     return (
       <div>
           <Container>
               <div >
                 <h1>Score Board</h1>
               </div>
-            <Table striped bordered size="sm">
+            <Table striped bordered size="lg">
                 <thead>
                     <tr>
                     <th>Round</th>
