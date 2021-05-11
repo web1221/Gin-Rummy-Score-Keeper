@@ -11,3 +11,8 @@
   margin: 1em;
   padding: 1em;
 }
+
+.formGroup {
+  background-color: red;
+  padding: 1em;
+}
