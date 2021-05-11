@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col, Table} from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
 export default function ScoreBoard(props) {
@@ -26,7 +26,7 @@ export default function ScoreBoard(props) {
               <div >
                 <h1>Score Board</h1>
               </div>
-            <Row>
+            {/* <Row>
                 <Col>
                     {props.player1Name}
                     {testArray.map((score) => {
@@ -49,7 +49,31 @@ export default function ScoreBoard(props) {
                         )
                     })}
                 </Col>
-            </Row>
+            </Row> */}
+            <Table striped bordered hover size="sm">
+                <thead>
+                    <tr>
+                    <th>Round</th>
+                    <th>{props.player1Name}</th>
+                    <th>{props.player2Name}</th>
+                    </tr>
+                </thead>
+       
+                {testArray.map((score) => {
+                        return (
+                            <>
+                           
+                                     <tbody key={score.round}>
+                                     <tr>
+                                     <td>{score.round}</td>
+                                     <td>{score.score1}</td>
+                                     <td>{score.score2}</td>
+                                     </tr>
+                                 </tbody>
+                             </>
+                        )
+                    })}
+            </Table>
           </Container>
       </div>
     );
