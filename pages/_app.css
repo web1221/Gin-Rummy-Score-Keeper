@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Girassol&display=swap");
+body {
+  font-family: "Girassol", cursive;
+  background-color: #151515;
+  color: white;
+  letter-spacing: 0.13em;
+}
