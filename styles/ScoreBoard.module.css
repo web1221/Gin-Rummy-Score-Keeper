@@ -1,6 +1,6 @@
 .header {
   text-align: center;
-  padding: 1em;
+  padding: 2em 0 1.75em 0;
 }
 
 .tableHead {
@@ -13,4 +13,24 @@
 
 .tableHeader {
   font-size: 1.25em;
+}
+
+.formGroup {
+  /* background-color: red; */
+  padding: 1em;
+}
+
+.buttonStyle {
+  background-color: #301b3f;
+  width: 50%;
+  border: none;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+  margin-top: 1.75em;
 }
