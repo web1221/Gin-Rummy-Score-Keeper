@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Container, Table} from 'react-bootstrap';
+import { Container, Table, Form, Row, Col, Button} from 'react-bootstrap';
 import styles from '../styles/ScoreBoard.module.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -87,6 +87,26 @@ export default function ScoreBoard(props) {
                     </tbody>
 
             </Table>
+            <Form>
+                <Form.Group className={styles.formGroup} as={Row}>
+                    <Form.Label className={styles.labelText} column sm="2">Enter {props.player1Name}'s Score</Form.Label>
+                    <Col sm="10">
+                        <Form.Control type="number" placeholder="Enter Score" />
+                    </Col>
+                </Form.Group>
+                <Form.Group className={styles.formGroup} as={Row}>
+                    <Form.Label className={styles.labelText} column sm="2">Enter {props.player2Name}'s Score</Form.Label>
+                    <Col sm="10">
+                        <Form.Control type="number" placeholder="Enter Score" />
+                    </Col>
+                </Form.Group>
+                <div className={styles.buttonContainer}>
+
+                <Button className={styles.buttonStyle}  variant="primary" type="submit">
+                    Enter Score
+                </Button>
+                </div>
+            </Form>
           </Container>
       </div>
     );
