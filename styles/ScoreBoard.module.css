@@ -1,0 +1,22 @@
+.header {
+  text-align: center;
+  padding: 1em;
+}
+
+.tableHead {
+  color: white;
+}
+
+.test {
+  color: red;
+}
+
+.tableStriped > tbody > tr:nth-child(2n + 1) > td,
+.tableStriped > tbody > tr:nth-child(2n + 1) > th {
+  background-color: red;
+}
+/* 
+tbody tr:hover {
+  color: yellow !important;
+  background-color: brown;
+} */

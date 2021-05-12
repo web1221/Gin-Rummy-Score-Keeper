@@ -1,5 +1,6 @@
 .container {
   text-align: center;
+  padding-top: 1em;
 }
 
 .formContainer {
@@ -13,6 +14,26 @@
 }
 
 .formGroup {
-  background-color: red;
+  /* background-color: red; */
   padding: 1em;
+}
+
+.buttonStyle {
+  background-color: #301b3f;
+  width: 50%;
+  border: none;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+}
+.buttonStyle:hover {
+  background-color: #3c415c;
+  color: #b4a5a5;
+}
+.buttonStyle:active {
+  background-color: #3c415c;
+  color: #b4a5a5;
+}
+
+.labelText {
+  font-size: 1.3em;
 }
