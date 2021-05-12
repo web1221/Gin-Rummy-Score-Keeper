@@ -52,8 +52,8 @@ export default function ScoreBoard(props) {
               <div className={styles.header}>
                 <h1>Score Board</h1>
               </div>
-            <Table className={styles.tableStriped}striped bordered dark size="lg">
-                <thead>
+            <Table striped bordered variant="dark" size="lg">
+                <thead className={styles.tableHeader} key={30}>
                     <tr>
                     <th>Round</th>
                     <th>{props.player1Name}</th>

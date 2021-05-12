@@ -11,12 +11,6 @@
   color: red;
 }
 
-.tableStriped > tbody > tr:nth-child(2n + 1) > td,
-.tableStriped > tbody > tr:nth-child(2n + 1) > th {
-  background-color: red;
+.tableHeader {
+  font-size: 1.25em;
 }
-/* 
-tbody tr:hover {
-  color: yellow !important;
-  background-color: brown;
-} */
