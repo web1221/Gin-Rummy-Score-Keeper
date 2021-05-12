@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Container, Table} from 'react-bootstrap';
+import styles from '../styles/ScoreBoard.module.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ScoreBoard(props) {
     const [roundAndScoreObj, setRoundAndScoreObj] = useState([])
@@ -47,10 +49,10 @@ export default function ScoreBoard(props) {
     return (
       <div>
           <Container>
-              <div >
+              <div className={styles.header}>
                 <h1>Score Board</h1>
               </div>
-            <Table striped bordered size="lg">
+            <Table className={styles.tableStriped}striped bordered dark size="lg">
                 <thead>
                     <tr>
                     <th>Round</th>
