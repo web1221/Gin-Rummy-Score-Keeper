@@ -11,22 +11,22 @@ export default function NameForms(props) {
     return (
     <Container>
       <div className={styles.container}>
-        <header><h1>Welcome to the Gin Rummy Counter!</h1></header>
-            <h3>Enter the Names of Players</h3> 
+        <header><h1>Gin Rummy Counter</h1></header>
+            <h5>Enter the Names of Players</h5> 
             <Form>
                 <Form.Group className={styles.formGroup} as={Row}>
-                    <Form.Label column sm="2">Player 1</Form.Label>
+                    <Form.Label className={styles.labelText} column sm="2">Player 1</Form.Label>
                     <Col sm="10">
                         <Form.Control onChange={(event) => props.setPlayer1Name(event.target.value)} type="text" placeholder="Enter name" />
                     </Col>
                 </Form.Group>
                 <Form.Group className={styles.formGroup} as={Row}>
-                    <Form.Label column sm="2">Player 2</Form.Label>
+                    <Form.Label className={styles.labelText} column sm="2">Player 2</Form.Label>
                     <Col sm="10">
                         <Form.Control onChange={(event) => props.setPlayer2Name(event.target.value)} type="text" placeholder="Enter name" />
                     </Col>
                 </Form.Group>
-                <Button onClick={onSubmit} variant="primary" type="submit">
+                <Button className={styles.buttonStyle} onClick={onSubmit} variant="primary" type="submit">
                     Let's Play!
                 </Button>
             </Form>
