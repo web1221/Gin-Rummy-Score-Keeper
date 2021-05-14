@@ -4,7 +4,18 @@ import styles from '../styles/ScoreBoard.module.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ScoreBoard(props) {
-    const [roundAndScoreObj, setRoundAndScoreObj] = useState([])
+    const [round, setRound] = useState();
+    const [score1, setScore1] = useState(0);
+    const [score2, setScore2] = useState(0);
+    const [roundAndScore, setRoundAndScore] = useState([]);
+
+    const onFormSubmit = () => {
+        roundAndScore.push({
+            round: round,
+            score1: score1,
+            score2: score2 
+        });
+    }
     let testArray = [
         {
             round: 1,
