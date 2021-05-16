@@ -28,6 +28,15 @@
   letter-spacing: 0.1em;
 }
 
+.buttonStyle:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #301b3f;
+  width: 50%;
+  border: none;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+}
 .buttonContainer {
   display: flex;
   justify-content: center;
