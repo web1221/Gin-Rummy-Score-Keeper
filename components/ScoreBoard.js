@@ -14,16 +14,26 @@ export default function ScoreBoard(props) {
     }, []);
 
     const getSavedScores = () => {
-        const savedScores = localStorage.getItem("gameScores");
+        const savedScores = JSON.parse(localStorage.getItem("gameScores"));
         if (savedScores === null){
             return
         } else {
-            setRoundAndScore(JSON.parse(savedScores));
+            console.log(savedScores.player1Name)
+            props.setPlayer1Name(savedScores.player1Name)
+            props.setPlayer2Name(savedScores.player2Name)
+            setRoundAndScore(savedScores);
         }
     }
     
     const saveGameScores = () => {
+        roundAndScore.player1Name = props.player1Name
+        roundAndScore.player2Name = props.player2Name
         localStorage.setItem("gameScores", JSON.stringify(roundAndScore));
+    }
+
+    const clearGame = () => {
+        localStorage.clear()
+        window.location.reload(false);
     }
 
     const onFormSubmit = () => {
@@ -37,29 +47,7 @@ export default function ScoreBoard(props) {
         addTotalScore()
         saveGameScores()
     }
-    let testArray = [
-        {
-            round: 1,
-            score1: 10,
-            score2: 12
-        },
-        {
-            round: 2,
-            score1: 50,
-            score2: 30
-        },
-        {
-            round: 3,
-            score1: 30,
-            score2: 100
-        },
-        {
-            round: 4,
-            score1: 65,
-            score2: 100
-        }
-    ]
-
+    
     const addTotalScore = () => {
          props.setPlayer1TotalScore(roundAndScore.reduce((accum,item) => accum + item.score1, 0))
          props.setPlayer2TotalScore(roundAndScore.reduce((accum,item) => accum + item.score2, 0))
@@ -138,6 +126,13 @@ export default function ScoreBoard(props) {
                     variant="primary"
                 >
                     Enter Score
+                </Button>
+                <Button   
+                    onClick={clearGame}
+                    className={styles.buttonStyle}  
+                    variant="primary"
+                >
+                    Clear Game
                 </Button>
                 </div>
             </Form>
