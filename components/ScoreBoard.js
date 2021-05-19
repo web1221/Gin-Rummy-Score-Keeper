@@ -9,6 +9,23 @@ export default function ScoreBoard(props) {
     const [score2, setScore2] = useState(0);
     const [roundAndScore, setRoundAndScore] = useState([]);
 
+    useEffect(() => {
+        getSavedScores()
+    }, []);
+
+    const getSavedScores = () => {
+        const savedScores = localStorage.getItem("gameScores");
+        if (savedScores === null){
+            return
+        } else {
+            setRoundAndScore(JSON.parse(savedScores));
+        }
+    }
+    
+    const saveGameScores = () => {
+        localStorage.setItem("gameScores", JSON.stringify(roundAndScore));
+    }
+
     const onFormSubmit = () => {
         setRound(round + 1)
         roundAndScore.push({
@@ -18,6 +35,7 @@ export default function ScoreBoard(props) {
         });
         document.getElementById("formId").reset();
         addTotalScore()
+        saveGameScores()
     }
     let testArray = [
         {
