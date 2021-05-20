@@ -13,17 +13,16 @@ export default function ScoreBoard(props) {
     useEffect(() => {
         getSavedScores()
     }, []);
+    
+    useEffect(() => {
+        addTotalScore()
+    }, [roundAndScore]);
 
     const getSavedScores = () => {
         const savedScores = JSON.parse(localStorage.getItem("gameScores"));
         if (savedScores === null){
             return
         } else {
-            console.log(savedScores.player1Name)
-            console.log(savedScores.player1Name)
-            console.log(savedScores)
-            props.setPlayer1Name(savedScores.player1Name)
-            props.setPlayer2Name(savedScores.player2Name)
             setRoundAndScore(savedScores);
         }
     }
@@ -51,6 +50,7 @@ export default function ScoreBoard(props) {
     }
     
     const addTotalScore = () => {
+        console.log(props.player1TotalScore);
          props.setPlayer1TotalScore(roundAndScore.reduce((accum,item) => accum + item.score1, 0))
          props.setPlayer2TotalScore(roundAndScore.reduce((accum,item) => accum + item.score2, 0))
          props.setPlayer3TotalScore(roundAndScore.reduce((accum,item) => accum + item.score3, 0))
