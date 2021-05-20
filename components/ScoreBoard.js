@@ -19,6 +19,8 @@ export default function ScoreBoard(props) {
             return
         } else {
             console.log(savedScores.player1Name)
+            console.log(savedScores.player1Name)
+            console.log(savedScores)
             props.setPlayer1Name(savedScores.player1Name)
             props.setPlayer2Name(savedScores.player2Name)
             setRoundAndScore(savedScores);
@@ -26,14 +28,12 @@ export default function ScoreBoard(props) {
     }
     
     const saveGameScores = () => {
-        roundAndScore.player1Name = props.player1Name
-        roundAndScore.player2Name = props.player2Name
         localStorage.setItem("gameScores", JSON.stringify(roundAndScore));
     }
 
     const clearGame = () => {
         localStorage.clear()
-        window.location.reload(false);
+        location.reload(false);
     }
 
     const onFormSubmit = () => {
