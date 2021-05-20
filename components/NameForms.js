@@ -26,6 +26,12 @@ export default function NameForms(props) {
                         <Form.Control onChange={(event) => props.setPlayer2Name(event.target.value)} type="text" placeholder="Enter name" />
                     </Col>
                 </Form.Group>
+                <Form.Group className={styles.formGroup} as={Row}>
+                    <Form.Label className={styles.labelText} column sm="2">Player 3</Form.Label>
+                    <Col sm="10">
+                        <Form.Control onChange={(event) => props.setPlayer3Name(event.target.value)} type="text" placeholder="Enter name" />
+                    </Col>
+                </Form.Group>
                 <Button className={styles.buttonStyle} onClick={onSubmit} variant="primary" type="submit">
                     Let's Play!
                 </Button>

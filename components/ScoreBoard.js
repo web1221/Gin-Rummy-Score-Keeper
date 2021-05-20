@@ -7,6 +7,7 @@ export default function ScoreBoard(props) {
     const [round, setRound] = useState(1);
     const [score1, setScore1] = useState(0);
     const [score2, setScore2] = useState(0);
+    const [score3, setScore3] = useState(0);
     const [roundAndScore, setRoundAndScore] = useState([]);
 
     useEffect(() => {
@@ -41,7 +42,8 @@ export default function ScoreBoard(props) {
         roundAndScore.push({
             round: round,
             score1: score1,
-            score2: score2 
+            score2: score2,
+            score3: score3
         });
         document.getElementById("formId").reset();
         addTotalScore()
@@ -51,6 +53,7 @@ export default function ScoreBoard(props) {
     const addTotalScore = () => {
          props.setPlayer1TotalScore(roundAndScore.reduce((accum,item) => accum + item.score1, 0))
          props.setPlayer2TotalScore(roundAndScore.reduce((accum,item) => accum + item.score2, 0))
+         props.setPlayer3TotalScore(roundAndScore.reduce((accum,item) => accum + item.score3, 0))
     }
 
     return (
@@ -66,6 +69,7 @@ export default function ScoreBoard(props) {
                         <th>Round</th>
                         <th>{props.player1Name}</th>
                         <th>{props.player2Name}</th>
+                        <th>{props.player3Name}</th>
                         </tr>
                     </thead>
         
@@ -77,6 +81,7 @@ export default function ScoreBoard(props) {
                                     <td>{score.round}</td>
                                     <td>{score.score1}</td>
                                     <td>{score.score2}</td>
+                                    <td>{score.score3}</td>
                                     </tr>
                                 </>
                             )
@@ -90,6 +95,9 @@ export default function ScoreBoard(props) {
                             </td>
                             <td>
                                 {props.player2TotalScore}
+                            </td>
+                            <td>
+                                {props.player3TotalScore}
                             </td>
                         </tr>
                         </tbody>
@@ -113,6 +121,16 @@ export default function ScoreBoard(props) {
                     <Col sm="10">
                         <Form.Control 
                             onChange={(event) => setScore2(parseInt(event.target.value))} 
+                            type="number" 
+                            placeholder="Enter Score" 
+                        />
+                    </Col>
+                </Form.Group>
+                <Form.Group className={styles.formGroup} as={Row}>
+                    <Form.Label className={styles.labelText} column sm="2">Enter {props.player2Name}'s Score</Form.Label>
+                    <Col sm="10">
+                        <Form.Control 
+                            onChange={(event) => setScore3(parseInt(event.target.value))} 
                             type="number" 
                             placeholder="Enter Score" 
                         />
