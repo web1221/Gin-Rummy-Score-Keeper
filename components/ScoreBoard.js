@@ -13,7 +13,7 @@ export default function ScoreBoard(props) {
     useEffect(() => {
         getSavedScores()
     }, []);
-    
+
     useEffect(() => {
         addTotalScore()
     }, [roundAndScore]);
@@ -127,7 +127,7 @@ export default function ScoreBoard(props) {
                     </Col>
                 </Form.Group>
                 <Form.Group className={styles.formGroup} as={Row}>
-                    <Form.Label className={styles.labelText} column sm="2">Enter {props.player2Name}'s Score</Form.Label>
+                    <Form.Label className={styles.labelText} column sm="2">Enter {props.player3Name}'s Score</Form.Label>
                     <Col sm="10">
                         <Form.Control 
                             onChange={(event) => setScore3(parseInt(event.target.value))} 
